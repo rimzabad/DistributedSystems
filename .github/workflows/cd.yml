@@ -18,5 +18,5 @@ jobs:
         with:
           app-name: 'DistributedWeatherApplication20231116222456'
           slot-name: 'Production'
-          package: ${{ github.workspace }}/.net-app
+          package: ${{ github.workspace }}/DistributedWeatherApplication
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A543AB3198C448A990035C91136B7783 }}
