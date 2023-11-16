@@ -1,0 +1,25 @@
+name: Azure Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Other necessary steps to build your .NET application...
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'DistributedWeatherApplication20231116222456'
+          slot-name: 'production'
+          package: .
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_c8a17f106ecf45c5a6c4cc65ad3709b6 }}
