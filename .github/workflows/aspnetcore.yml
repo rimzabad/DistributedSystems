@@ -7,12 +7,12 @@ on:
       - WeatherApplication 
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
@@ -21,12 +21,18 @@ jobs:
 
       - name: Restore Dependencies
         run: |
-          cd DistributedWeatherApplication  # Navigate to your project folder
+          cd DistributedWeatherApplication
           dotnet restore --verbosity normal
           cd ..  # Return to the previous directory
 
       - name: Build
         run: |
-          cd DistributedWeatherApplication  # Navigate to your project folder
+          cd DistributedWeatherApplication
           dotnet build --configuration Release --verbosity normal
-          cd ..  # Return to the previous directory
+          cd ..
+
+      - name: Run Tests
+        run: |
+          cd DistributedWeatherApplication
+          dotnet test --verbosity normal
+          cd ..
