@@ -32,6 +32,14 @@ jobs:
       - name: Run Tests
         run: |
           cd DistributedWeatherApplication
+      - name: Dockerize
+        run: |
+          cd DistributedWeatherApplication
+          docker build -t weather-forecast-app:v1.0 .
+          cd DistributedWeatherApplication
+          dotnet test --verbosity normal
+          cd ..
+
           dotnet test --verbosity normal
           cd ..
 
