@@ -20,7 +20,13 @@ jobs:
           dotnet-version: '6.0'
 
       - name: Restore Dependencies
-        run: dotnet restore  # Restore project dependencies
+        run: |
+          cd DistributedWeatherApplication  # Navigate to your project folder
+          dotnet restore --verbosity normal
+          cd ..  # Return to the previous directory
 
       - name: Build
-        run: dotnet build --configuration Release --project ./DistributedWeatherApplication/DistributedWeatherApplication/DistributedWeatherApplication.csproj
+        run: |
+          cd DistributedWeatherApplication  # Navigate to your project folder
+          dotnet build --configuration Release --verbosity normal
+          cd ..  # Return to the previous directory
