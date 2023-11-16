@@ -8,19 +8,15 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-
+    runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Other necessary steps to build your .NET application...
-
       - name: Deploy to Azure Web App
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'DistributedWeatherApplication20231116222456'
-          slot-name: 'production'
-          package: .
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_c8a17f106ecf45c5a6c4cc65ad3709b6 }}
+          slot-name: 'Production'
+          package: ${{ github.workspace }}/.net-app
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A543AB3198C448A990035C91136B7783 }}
