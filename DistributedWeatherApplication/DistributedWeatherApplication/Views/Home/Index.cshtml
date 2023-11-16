@@ -1,0 +1,20 @@
+﻿@model WeatherData
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+</head>
+<body>
+    @if (Model != null)
+    {
+        <h1>Weather Information for @Model.Location.Name</h1>
+        <p>Temperature: @Model.Current?.Temp_C &deg;C</p>
+        <p>Condition: @Model.Current?.Condition?.Text</p>
+    }
+    else
+    {
+        <p>No weather data available.</p>
+    }
+</body>
+</html>
