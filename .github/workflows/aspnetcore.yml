@@ -40,8 +40,8 @@ jobs:
       - name: Dockerize
         run: |
           cd DistributedWeatherApplication
-          docker build -t weather-forecast-app:v1.0 .  
-          cd ..  # Return to the previous directory
+          docker build -t weather-forecast-app:v1.0 .
+
           cd DistributedWeatherApplication
           dotnet test --verbosity normal
           cd ..
