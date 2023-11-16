@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - WeatherApplication
 
 jobs:
   deploy:
