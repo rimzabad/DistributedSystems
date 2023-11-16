@@ -23,8 +23,7 @@ jobs:
         run: |
           cd DistributedWeatherApplication
           dotnet restore --verbosity normal
-          cd ..  # Return to the previous directory
-
+          cd ..
       - name: Build
         run: |
           cd DistributedWeatherApplication
